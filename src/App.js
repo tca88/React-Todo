@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
 
 
 const todos = [
@@ -32,7 +33,6 @@ class App extends React.Component {
     // is the "state" of my data right now)
     // this is NOT muttable - we will change "state" following immutability principles
     this.state = {
-      // This state object is the brain of our component tree
       todoList: todos,
       task: ""
     };
@@ -41,7 +41,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Todo List: MVP</h1>
+        <TodoList todoListProp={this.state.todoList} />
       </div>
     );
   }
