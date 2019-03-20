@@ -4,7 +4,7 @@ import React from 'react';
 const Todo = props => {
 
     return (
-        <div>
+        <div className="todo-task">
             <p>{props.todoProp.task}</p>
         </div>
     );
