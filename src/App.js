@@ -38,6 +38,13 @@ class App extends React.Component {
       task: ""
     };
   }
+
+  handleChanges = event => {
+    // console.log("event: ", event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
   
   render() {
     return (
@@ -49,6 +56,7 @@ class App extends React.Component {
         <div>
           <TodoForm 
           task={this.state.task}
+          handleChanges={this.handleChanges}
           />
         </div>
       </div>
