@@ -2,4 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
 
-render(<App />, document.getElementById('root'));
+function TodoApp() {
+    return <App />
+};
+
+render(<TodoApp />, document.getElementById('root'));
