@@ -45,6 +45,16 @@ class App extends React.Component {
       [event.target.name]: event.target.value
     });
   };
+
+  updateList = event => {
+    event.preventDefault();
+    const newTodoList = {
+      task: this.state.task,
+    };
+    this.setState({
+      todoList: [...this.state.todoList, newTodoList]
+    });
+  };
   
   render() {
     return (
@@ -57,6 +67,7 @@ class App extends React.Component {
           <TodoForm 
           task={this.state.task}
           handleChanges={this.handleChanges}
+          updateList={this.updateList}
           />
         </div>
       </div>

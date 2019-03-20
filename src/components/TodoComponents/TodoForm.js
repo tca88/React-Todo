@@ -8,7 +8,7 @@ const TodoForm= props => {
                 value={props.task}
                 name="task"
                 placeholder="...todo"
-                onChange={props.handleChanges} // onChange takes in a function definition.
+                onChange={props.handleChanges}
             />
             <button onClick={props.updateList}>Add Todo</button>
             <button>Clear Completed</button>
