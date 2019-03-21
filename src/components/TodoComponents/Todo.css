@@ -219,10 +219,3 @@ button.clear-button:hover {
     transform: scale(1.1);
 
 }
-
-.left-design {
-    background: green;
-    height: 300px;
-    width: 40px;
-    border: 1px solid black;
-}
