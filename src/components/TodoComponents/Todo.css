@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Kalam:400,700|Roboto:400,400i,500,700');
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,600,600i,700|Roboto+Condensed:400,700');
+
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -65,21 +66,32 @@ body {
 }
 
 p {
-font-family: 'Kalam', cursive;
+font-family: 'Cabin', sans-serif;
 font-size: 1.6rem;
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+
 }
 
 h1 {
     font-size: 3rem;
-    font-weight: 500;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-left: .2rem;
+}
+
+.todo-app-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .todoItem {
-    background-color: #e64944;
     width: 45%;
     text-align: left;
     margin: 4px 0;
@@ -91,8 +103,27 @@ h1 {
 }
 
 .todoItem.completed {
-    background-color: #d17d7c;
     text-decoration: line-through;
-    font-weight: 700;
+    font-style: italic;
     cursor: pointer;
+    color: grey
   }
+
+  .todos {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+  }
+
+  .checkMark {
+      /* display:none; */
+      width: 20px;
+      height:20px;
+  }
+
+  .checkMark.include {
+    display:block;
+}
+

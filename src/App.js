@@ -25,20 +25,11 @@ const todos = [
 ];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
 
   constructor() {
     super();
-    // state === data (what our data looks like at any given point... what
-    // is the "state" of my data right now)
-    // this is NOT muttable - we will change "state" following immutability principles
     this.state = {
       todoList: todos,
-      // task: "",
-      // id: "",
-      // completed: ""
     };
   }
 
@@ -48,19 +39,12 @@ class App extends React.Component {
         if (todoItem.id === id) {
           return {
             ...todoItem,
-            // name: item.name,
-            // id: item.id,
-            // purchased: item.purchased
             completed: !todoItem.completed
           };
         }
         return todoItem;
       })
     });
-    // loop over groceries
-    // find grocery by given id
-    // change flag to true
-    // return updated list to state.
   };
 
   handleChanges = event => {
@@ -79,11 +63,19 @@ class App extends React.Component {
       todoList: [...this.state.todoList, newTodoList]
     });
   };
+
+  clearCompleted = item => {
+    const clearedItem = this.state.todoList.filter(
+      item => item.completed === false
+    );
+    this.setState({todoList: clearedItem});
+  };
   
   render() {
     return (
       <div className="todo-app-container">
-        <h1>Todo List: MVP</h1>
+        <h1>Todone</h1>
+        <h3>A todo list management app you can count on.</h3>
         <div>
         <TodoList 
         todoListProp={this.state.todoList} 
@@ -98,6 +90,7 @@ class App extends React.Component {
           handleClickEvent={this.handleClickEvent}
           />
         </div>
+        <button onClick={this.clearCompleted}>Clear Completed</button>
       </div>
     );
   }
