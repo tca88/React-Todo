@@ -9,15 +9,16 @@ const todos = [
     id: 1528817077286,
     completed: false
   },
+
   {
-    task: 'Bake Cookies',
+    task: 'Go Grocery Shopping',
     id: 1528817084358,
     completed: false
   },
 
   {
-    task: 'Go Grocery Shopping',
-    id: 1528817084358,
+    task: 'Bake Cookies',
+    id: 1528817084359,
     completed: false
   }
 
@@ -35,9 +36,32 @@ class App extends React.Component {
     // this is NOT muttable - we will change "state" following immutability principles
     this.state = {
       todoList: todos,
-      task: ""
+      // task: "",
+      // id: "",
+      // completed: ""
     };
   }
+
+  toggleItem = id => {
+    this.setState({
+      todoList: this.state.todoList.map(todoItem => {
+        if (todoItem.id === id) {
+          return {
+            ...todoItem,
+            // name: item.name,
+            // id: item.id,
+            // purchased: item.purchased
+            completed: !todoItem.completed
+          };
+        }
+        return todoItem;
+      })
+    });
+    // loop over groceries
+    // find grocery by given id
+    // change flag to true
+    // return updated list to state.
+  };
 
   handleChanges = event => {
     // console.log("event: ", event.target.value);
@@ -61,13 +85,17 @@ class App extends React.Component {
       <div className="todo-app-container">
         <h1>Todo List: MVP</h1>
         <div>
-        <TodoList todoListProp={this.state.todoList} />
+        <TodoList 
+        todoListProp={this.state.todoList} 
+        toggleItem={this.toggleItem}
+        />
         </div>
         <div>
-          <TodoForm 
+          <TodoForm
           task={this.state.task}
           handleChanges={this.handleChanges}
           updateList={this.updateList}
+          handleClickEvent={this.handleClickEvent}
           />
         </div>
       </div>
