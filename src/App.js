@@ -73,25 +73,29 @@ class App extends React.Component {
   
   render() {
     return (
-      <div className="todo-app-container">
-        <h1>Todone</h1>
-        <h3>A todo list management app you can count on.</h3>
-        <div>
-        <TodoList 
-        todoListProp={this.state.todoList} 
-        toggleItem={this.toggleItem}
-        />
+<div className="app">
+      <div className="todo-primary-container">
+      <h1 className="animated fadeInDownBig">To<span>done</span></h1>
+        <h3 className="animated fadeIn">A todo list management app you can count on.</h3>
+        <div className="todo-content-container animated fadeIn">
+            <div>
+            <TodoList 
+            todoListProp={this.state.todoList} 
+            toggleItem={this.toggleItem}
+            />
+            </div>
+            <div>
+              <TodoForm
+              task={this.state.task}
+              handleChanges={this.handleChanges}
+              updateList={this.updateList}
+              handleClickEvent={this.handleClickEvent}
+              />
+            </div>
+            <button className="clear-button" onClick={this.clearCompleted}>Clear Completed</button>
+          </div>
         </div>
-        <div>
-          <TodoForm
-          task={this.state.task}
-          handleChanges={this.handleChanges}
-          updateList={this.updateList}
-          handleClickEvent={this.handleClickEvent}
-          />
-        </div>
-        <button onClick={this.clearCompleted}>Clear Completed</button>
-      </div>
+</div>
     );
   }
 }
