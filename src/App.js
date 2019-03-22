@@ -30,12 +30,15 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: todos,
+      task: '',
     };
   }
 
   toggleItem = id => {
     this.setState({
       todoList: this.state.todoList.map(todoItem => {
+        // console.log('todoItem', todoItem);
+        // console.log('id', id);
         if (todoItem.id === id) {
           return {
             ...todoItem,
@@ -56,15 +59,15 @@ class App extends React.Component {
 
   updateList = event => {
     event.preventDefault();
-    const newTodoList = {
+    const newTodoItem = {
       task: this.state.task,
       completed: false,
       id: Date.now(),
     };
+    // console.log('id', newTodoItem.id);
     this.setState({
-      todoList: [...this.state.todoList, newTodoList]
+      todoList: [...this.state.todoList, newTodoItem]
     });
-    console.log(this.todoList);
   };
 
   clearCompleted = item => {
