@@ -3,7 +3,6 @@ import React from 'react';
 import check from '../TodoComponents/img/check-mark.png';
 
 const Todo = props => {
-    // console.log(props);
     return (
     <div className="todos">
      <img className={`checkMark${props.todoItem.completed ? " include" : ""}`} src={check} alt="check mark icon"/>

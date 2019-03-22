@@ -58,10 +58,13 @@ class App extends React.Component {
     event.preventDefault();
     const newTodoList = {
       task: this.state.task,
+      completed: false,
+      id: Date.now(),
     };
     this.setState({
       todoList: [...this.state.todoList, newTodoList]
     });
+    console.log(this.todoList);
   };
 
   clearCompleted = item => {
